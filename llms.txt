@@ -1,0 +1,14 @@
+# Muhammad Azrulhadi Fikrullah
+Marketing Technology & Automation Specialist with a Cybersecurity background.
+
+## Core Skills
+- CRM: ActiveCampaign, Logic Segmentation, Behavior-based Lead Scroring, Lead Lifecycle Workflows[cite: 10].
+- Automation tools: Webhooks, Pabbly, Meta Ads API integration[cite: 14, 15].
+- Security: Cloudflare WAF, Bot Mitigation, CompTIA CySA+/PenTest+[cite: 72, 75].
+- Data Analytic: Google Analytics, Pivot Table, Looker Studio.
+- Conversion Tracking: Pixel, Custom Events.
+
+## Key Achievements
+- Increased webinar attendance to 30%+.
+- Achieved 95% lead tracking accuracy.
+- Managed secure integration for OnPay, Kajabi, and Google Sheets[cite: 15]
