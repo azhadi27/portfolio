@@ -157,6 +157,75 @@
     </div>
   </section>
 
+  <!--- Contact Form Start --->
+  <section id="contact" class="py-20 px-6 border-t border-gray-800 bg-gray-900/20">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-white mb-2">Secure Inquiry</h2>
+        <p class="text-gray-400">Submissions are encrypted and logged into a private database.</p>
+      </div>
+      
+      <form id="contactForm" class="space-y-4">
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="source_url" id="source_url">
+        
+        <div>
+          <label class="block text-xs font-mono text-emerald-500 mb-1">NAME</label>
+          <input type="text" name="name" required class="w-full bg-black border border-gray-800 p-3 rounded-lg focus:border-emerald-500 outline-none text-white">
+        </div>
+        
+        <div>
+          <label class="block text-xs font-mono text-emerald-500 mb-1">EMAIL</label>
+          <input type="email" name="email" required class="w-full bg-black border border-gray-800 p-3 rounded-lg focus:border-emerald-500 outline-none text-white">
+        </div>
+        
+        <div>
+          <label class="block text-xs font-mono text-emerald-500 mb-1">MESSAGE</label>
+          <textarea name="message" rows="4" required class="w-full bg-black border border-gray-800 p-3 rounded-lg focus:border-emerald-500 outline-none text-white"></textarea>
+        </div>
+        
+        <button type="submit" id="submitBtn" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl transition uppercase tracking-widest text-xs">
+        SUBMIT SECURELY
+        </button>
+        
+        <p id="responseMsg" class="hidden text-center text-emerald-500 font-mono text-xs mt-4">DONE: Data transmitted successfully.</p>
+        </form>
+    </div>
+  </section>
+  
+  <script>
+    // UTM & Source Capture Logic
+    window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('utm_source').value = params.get('utm_source') || "";
+    document.getElementById('utm_medium').value = params.get('utm_medium') || "";
+    document.getElementById('utm_campaign').value = params.get('utm_campaign') || "";
+    document.getElementById('source_url').value = window.location.href;
+    });
+    
+    // Form Submission Logic
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzjEL8LL5LaSXBc1QVSiAzVPV7XOkltVY9tj54iCWjMTTMcuVwiM-VxXAOwm9MHgbt1Xw/exec';
+    const form = document.getElementById('contactForm');
+    
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.innerText = "ENCRYPTING...";
+      btn.disabled = true;
+      
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+          document.getElementById('responseMsg').classList.remove('hidden');
+          btn.innerText = "SENT";
+          form.reset();
+      })
+      .catch(error => console.error('Error!', error.message));
+    });
+  </script>
+  <!--- Contact Form End --->
+
   <footer class="py-20 px-6 text-center border-t border-gray-800">
     <h2 class="text-4xl font-bold text-white mb-6">Let's Secure Your Growth.</h2>
     <p class="text-gray-400 mb-10">Currently open to roles in MarTech Engineering and Marketing Automation.</p>
