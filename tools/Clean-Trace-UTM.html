@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clean-Trace UTM Builder | Azrul Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 text-gray-200 p-8">
+    <div class="max-w-2xl mx-auto bg-gray-900 p-8 rounded-3xl border border-emerald-500/20 shadow-2xl">
+        <h1 class="text-2xl font-bold text-white mb-2 font-mono">🔗 Clean-Trace UTM</h1>
+        <p class="text-gray-400 text-sm mb-8">Generate sanitized, attribution-ready links with XSS protection.</p>
+
+        <div class="space-y-4">
+            <div>
+                <label class="block text-xs font-mono text-emerald-500 mb-1">WEBSITE URL</label>
+                <input id="baseUrl" type="text" placeholder="https://example.com" class="w-full bg-black border border-gray-800 p-3 rounded-lg focus:border-emerald-500 outline-none text-sm">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-mono text-emerald-500 mb-1">SOURCE (e.g. facebook)</label>
+                    <input id="source" type="text" class="w-full bg-black border border-gray-800 p-3 rounded-lg focus:border-emerald-500 outline-none text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono text-emerald-500 mb-1">MEDIUM (e.g. cpc)</label>
+                    <input id="medium" type="text" class="w-full bg-black border border-gray-800 p-3 rounded-lg focus:border-emerald-500 outline-none text-sm">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-mono text-emerald-500 mb-1">CAMPAIGN NAME</label>
+                <input id="campaign" type="text" class="w-full bg-black border border-gray-800 p-3 rounded-lg focus:border-emerald-500 outline-none text-sm">
+            </div>
+
+            <button onclick="buildUTM()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition uppercase tracking-widest text-xs">
+                Build Secure Link
+            </button>
+        </div>
+
+        <div id="resultBox" class="mt-8 hidden">
+            <div class="flex justify-between items-center mb-1">
+                <label class="text-xs font-mono text-gray-500">FINAL SANITIZED URL:</label>
+                <span id="status" class="text-[10px] text-emerald-500 font-bold uppercase">Safe & Lowercased</span>
+            </div>
+            <div class="bg-black p-4 rounded-lg border border-gray-800 break-all">
+                <code id="output" class="text-emerald-400 text-xs"></code>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sanitize(str) {
+            // Lowercase and remove characters that could be used for XSS or URL injection
+            return str.toLowerCase().trim().replace(/[<>\"\'\(\)\[\]\{\}\;\:\\]/g, "").replace(/\s+/g, "_");
+        }
+
+        function buildUTM() {
+            const base = document.getElementById('baseUrl').value;
+            const src = sanitize(document.getElementById('source').value);
+            const med = sanitize(document.getElementById('medium').value);
+            const cam = sanitize(document.getElementById('campaign').value);
+
+            if(!base) return alert("Please enter a base URL");
+
+            const url = new URL(base);
+            url.searchParams.set('utm_source', src);
+            url.searchParams.set('utm_medium', med);
+            url.searchParams.set('utm_campaign', cam);
+
+            document.getElementById('output').innerText = url.toString();
+            document.getElementById('resultBox').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
