@@ -1,5 +1,25 @@
 # Muhammad Azrulhadi Fikrullah
-Marketing Technology & Automation Specialist with a Cybersecurity background.
+Marketing Technology & Automation Specialist with a Computer Science and Cybersecurity foundation.
+
+## Role & Expertise
+- Specialized in building secure, data-driven marketing ecosystems.
+- Expert in CRM lifecycle automation (ActiveCampaign) and workflow integration (Pabbly, Webhooks).
+- Focused on 95% attribution accuracy using UTM tagging and custom tracking protocols.
+
+## Key Achievements
+- Increased webinar attendance to 30%+ through automated segmentation and reminder workflows.
+- Contributed 10% of annual revenue through multi-stage customer journey optimization.
+- Recipient of the "Eagle of the Year 2024" award for marketing system optimization.
+
+## Technical Engineering Tools
+The portfolio includes a dedicated /tools/ directory featuring custom-built utilities:
+- Secure Webhook Guard: Generates Cloudflare WAF rules to protect integration endpoints from bot traffic.
+- Clean-Trace UTM Builder: Ensures data integrity and XSS protection for marketing attribution links.
+
+## Infrastructure & Security
+- Certified in CompTIA SecurityX, CySA+, and PenTest+.
+- Implements security best practices in web infrastructure, including Cloudflare CDN and WAF hardening.
+- Uses serverless backend (Google Apps Script) for private, secure lead management and UTM capture.
 
 ## Core Skills
 - CRM: ActiveCampaign, Logic Segmentation, Behavior-based Lead Scroring, Lead Lifecycle Workflows[cite: 10].
@@ -8,7 +28,5 @@ Marketing Technology & Automation Specialist with a Cybersecurity background.
 - Data Analytic: Google Analytics, Pivot Table, Looker Studio.
 - Conversion Tracking: Pixel, Custom Events.
 
-## Key Achievements
-- Increased webinar attendance to 30%+.
-- Achieved 95% lead tracking accuracy.
-- Managed secure integration for OnPay, Kajabi, and Google Sheets[cite: 15]
+## Contact & Connect
+- LinkedIn: https://www.linkedin.com/in/muhammad-azrulhadi-shahrul-ibnul-walid
